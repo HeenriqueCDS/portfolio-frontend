@@ -25,7 +25,7 @@ export const MainPage = () => {
                 {i18n.t("pages.main.sinceTwelve")}
               </p>
               <a
-                href="https://wa.me/5511964780550"
+                href="https://wa.me/5511950645574"
                 className="mt-8 text-green-400 underline cursor-pointer font-tech"
               >
                 {i18n.t("pages.main.letsChat")}
