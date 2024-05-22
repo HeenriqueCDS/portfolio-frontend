@@ -1,6 +1,6 @@
 import me from "@/assets/me.jpg";
 import node from "@/assets/nodejs.png";
-import python from "@/assets/python.png";
+import aws from "@/assets/aws.jpg";
 import react from "@/assets/react.png";
 import { SkillCard } from "@/components/SkillCard";
 import { Brain, Code, Monitor } from "@phosphor-icons/react";
@@ -70,9 +70,9 @@ export const MainPage = () => {
             </div>
             <div className="hidden orbit3 absolute lg:flex  items-center justify-center h-24 w-24 z-30 bg-[#141414] rounded-full m-auto">
               <Image
-                src={python}
-                alt="Python icon"
-                className="rotate-[-240deg]  h-[60%] w-fit"
+                src={aws}
+                alt="Amazon Web Services Icon"
+                className="rotate-[-240deg] rounded-full  h-[90%] w-fit"
               />
             </div>
           </div>
