@@ -17,7 +17,7 @@ type TTranslations = typeof en.translations;
 type StringMap = {
   [key: string]: any;
 };
-let lng = "pt";
+let lng = "en";
 const i18nInstance = i18next.createInstance();
 
 t: (key: KeyOf<TTranslations>, Interpolation?: StringMap) =>
