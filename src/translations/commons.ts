@@ -21,7 +21,7 @@ export const enUS = {
     sayingHi: "saying hi!",
     information: {
       title: "Information",
-      address: "Franco da Rocha, SP - Brazil",
+      address: "Dublin, Ireland",
       email: "heenriquecds@gmail.com",
     },
     rights: "All rights reserved",
@@ -51,7 +51,7 @@ export const ptBR = {
     sayingHi: "dizendo olá!",
     information: {
       title: "Informações",
-      address: "Franco da Rocha, SP - Brasil",
+      address: "Dublin, Irlanda",
       email: "heenriquecds@gmail.com",
     },
     rights: "Todos os direitos reservados",
