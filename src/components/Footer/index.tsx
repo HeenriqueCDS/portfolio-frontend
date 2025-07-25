@@ -19,7 +19,7 @@ export const Footer = () => {
             <h2 className="text-4xl mt-16">
               {i18n.t("commons.footer.startBy")}{" "}
               <a
-                href="https://wa.me/5511950645574"
+                href="https://wa.me/353831383418"
                 className="mt-8 text-green-400 underline cursor-pointer"
               >
                 {i18n.t("commons.footer.sayingHi")}
