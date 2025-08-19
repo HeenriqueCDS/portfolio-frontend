@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { DefaultLayout } from "@/shared/default-layout";
 import { useProject } from "@/hooks/useProjects";
+import { ImageCarousel } from "@/components/ImageCarousel";
 
 const ProjectDetailPage: NextPage = () => {
   const router = useRouter();
@@ -30,14 +31,8 @@ const ProjectDetailPage: NextPage = () => {
             </button>
             <h1 className="text-3xl font-bold mb-4">{project.name}</h1>
             {project.images && project.images.length > 0 ? (
-              <div className="w-full h-80 relative mb-6 overflow-hidden rounded-md bg-neutral-700">
-                <Image
-                  src={project.images[0].url}
-                  alt={project.images[0].alt || project.name}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  unoptimized
-                />
+              <div className="mb-6">
+                <ImageCarousel images={project.images} />
               </div>
             ) : null}
             <p className="text-neutral-200 whitespace-pre-line">{project.description}</p>
