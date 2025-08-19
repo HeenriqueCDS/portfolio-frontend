@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { cloneElement, ReactElement } from "react";
 import { useTranslation } from "react-i18next";
+import { usePrefetchProjects } from "@/hooks/useProjects";
 
 interface SkillCardProps {
   name: string;
@@ -11,6 +12,7 @@ interface SkillCardProps {
 export const SkillCard = ({ description, icon, name }: SkillCardProps) => {
   const router = useRouter();
   const { i18n } = useTranslation();
+  const prefetchProjects = usePrefetchProjects();
 
   return (
     <section className="transition-all group hover:shadow-2xl   flex flex-col justify-between relative bg-neutral-800 h-48 p-8 rounded-lg w-full">
@@ -23,6 +25,7 @@ export const SkillCard = ({ description, icon, name }: SkillCardProps) => {
       <a
         className="font-tech underline cursor-pointer"
         onClick={() => router.push("/projects")}
+        onMouseEnter={() => prefetchProjects(1, 6)}
       >
         {i18n.t("pages.main.seeProjects")}
       </a>
