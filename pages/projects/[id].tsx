@@ -32,7 +32,7 @@ const ProjectDetailPage: NextPage = () => {
             <h1 className="text-3xl font-bold mb-4">{project.name}</h1>
             {project.images && project.images.length > 0 ? (
               <div className="mb-6">
-                <ImageCarousel images={project.images} />
+                <ImageCarousel images={project.images} objectFit="contain" backgroundClass="bg-neutral-900" />
               </div>
             ) : null}
             <p className="text-neutral-200 whitespace-pre-line">{project.description}</p>

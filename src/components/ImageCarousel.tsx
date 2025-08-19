@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import useEmblaCarousel, { EmblaCarouselType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
+import type { EmblaCarouselType } from "embla-carousel";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { ProjectImage } from "@/types/project";
 
@@ -8,12 +9,16 @@ interface ImageCarouselProps {
   images: ProjectImage[];
   className?: string;
   heightClass?: string; // Tailwind height utility, e.g., "h-80"
+  objectFit?: "cover" | "contain";
+  backgroundClass?: string; // Background around images (letterboxing)
 }
 
 export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   className,
-  heightClass = "h-80",
+  heightClass = "h-[50vh] md:h-[60vh] max-h-[720px] min-h-[280px]",
+  objectFit = "contain",
+  backgroundClass = "bg-neutral-800",
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: images.length > 1 });
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -41,9 +46,11 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
   if (!images || images.length === 0) return null;
 
+  const objectFitClass = objectFit === "cover" ? "object-cover" : "object-contain";
+
   return (
     <div className={`relative w-full ${heightClass} ${className || ""}`}>
-      <div className="overflow-hidden rounded-md bg-neutral-700 h-full" ref={emblaRef}>
+      <div className={`overflow-hidden rounded-md ${backgroundClass} h-full`} ref={emblaRef}>
         <div className="flex h-full">
           {images.map((img, idx) => (
             <div key={`${img.url}-${idx}`} className="flex-[0_0_100%] min-w-0 relative h-full">
@@ -51,9 +58,10 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 src={img.url}
                 alt={img.alt || `Slide ${idx + 1}`}
                 fill
-                style={{ objectFit: "cover" }}
+                className={objectFitClass}
                 unoptimized
                 priority={idx === 0}
+                sizes="(max-width: 768px) 100vw, 1024px"
               />
             </div>
           ))}
